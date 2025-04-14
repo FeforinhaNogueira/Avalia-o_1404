@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela de Produtos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">Tabela de Produtos</h1>
+    <!-- Link para gerar o PDF -->
+    <a href="produto/pdf">Gerar PDF</a>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>NOME</th>
+          <th>DESCRIÇÃO</th>
+          <th>FORNECEDOR</th>
+          <th>MARCA</th>
+          <th>PREÇO DE COMPRA</th>
+          <th>PREÇO DE VENDA</th>
+          <th>ESTOQUE</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% produtos.forEach(dado => { %>
+          <tr>
+            <td><%= dado.id %></td>
+            <td><%= dado.nome %></td>
+            <td><%= dado.descricao %></td>
+            <td><%= dado.fornecedor %></td>
+            <td><%= dado.marca %></td>
+            <td><%= dado.precocompra %></td> 
+            <td><%= dado.precovenda %></td> 
+            <td><%= dado.estoque %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <div class="text-right mt-4">
+      <p class="text-muted">Página 1 de 1</p>
+      <p class="text-muted">Gerado em: <%= new Date().toLocaleDateString() %></p>
+    </div>
+  </div>
+</body>
+</html>
